@@ -4,8 +4,10 @@ import 'package:fluttertrip/dao/home_dao.dart';
 import 'package:fluttertrip/model/common_model.dart';
 import 'package:fluttertrip/model/grid_nav_model.dart';
 import 'package:fluttertrip/model/home_model.dart';
+import 'package:fluttertrip/model/sales_box_model.dart';
 import 'package:fluttertrip/widget/grid_nav.dart';
 import 'package:fluttertrip/widget/local_nav.dart';
+import 'package:fluttertrip/widget/sales_box.dart';
 import 'package:fluttertrip/widget/sub_nav.dart';
 
 //滚动完全变为白色的最大距离
@@ -22,6 +24,7 @@ class _HomePageState extends State<HomePage> {
   List<CommonModel> bannerList = [];
   GridNavModel gridNavModel;
   List<CommonModel> subNavList = [];
+  SalesBoxModel salesBoxModel;
 
   @override
   void initState() {
@@ -51,6 +54,7 @@ class _HomePageState extends State<HomePage> {
         bannerList = model.bannerList;
         gridNavModel = model.gridNav;
         subNavList = model.subNavList;
+        salesBoxModel = model.salesBox;
       });
     } catch (e) {
       setState(() {
@@ -105,6 +109,10 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: EdgeInsets.fromLTRB(7, 0, 7, 4),
                     child: SubNav(subNavList: subNavList),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(7, 0, 7, 4),
+                    child: SalesBox(salesBox: salesBoxModel),
                   ),
                 ],
               ),
